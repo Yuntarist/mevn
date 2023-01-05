@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 업로드</title>
+</head>
+<body>
+    <form action="/up" method="post" enctype="multipart/form-data">
+        <input type="file" name="ufile" id="" required>
+        <!-- required는 전송하거나 채워야 할 항목이 비어있을때 해당 칸에 값을
+             요구하는 창을 띄워준다. -->
+        <input type="submit" value="전송"></input>
+    </form>
+</body>
+</html>

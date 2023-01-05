@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal{
+            position:absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal.show{
+            display: block;
+        }
+        .modal-body{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 250px;
+            height: 400px;
+            padding: 20px;    
+            text-align: start;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 3px 0 rgba(34,36,38,0.15);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const button=document.getElementById('ok')
+            const modal=document.querySelector('.modal')
+            const modalBody=document.querySelector('.-modal-body')
+            ok.addEventListener("click",()=>{
+                modal.classList.add('show')
+            })
+        //     if(!modal.classList.contains('show')){
+        //         console.log('됨')
+        //         document.body.addEventListener('click',()=>{
+        //             modal.classList.remove('show')
+        //     })
+        // }
+            modal.addEventListener('click',()=>{
+                modal.classList.remove('show')
+            })
+    })
+    </script>
+</head>
+<body>
+    <div class="modal show">
+        <div class="modal-body">
+            <span>게시글작성</span>
+        </div>
+        <hr>
+        <div class="modal-title">
+            <span>작성자</span>
+        </div>
+        <span>제목</span>
+        <input type="text">
+    </div>
+    <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et, dolorem ducimus tempora, iste libero quibusdam illo maiores soluta sed molestiae repellendus fugiat quis possimus aspernatur. Nulla voluptates quod libero provident asperiores quasi deserunt fugiat nobis, numquam nemo, praesentium expedita quidem eaque amet quaerat necessitatibus est inventore modi enim rem nostrum.</h2>
+    <button id="ok">확인</button>
+</body>
+</html>

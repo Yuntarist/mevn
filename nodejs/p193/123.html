@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo List</title>
+    <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+        :root{
+            --bkcolor0: #ffffc8;
+            --bkcolor1: #ffff6c;
+            --bkcolor2: #ffff00;
+
+            --bcolor0: #b0e1ff;
+            --bcolor1: #7eceff;
+            --bcolor2: #45b7fe;
+            --bcolor3: #009dff;
+
+            --bcolor5: #d2ffbf;
+            --bcolor6: #a6ff81;
+            --bcolor7: #80fd4b;
+            --bcolor8: #4dff00;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        body,button,input{
+            font-family: 'Poor Story', cursive;
+        }
+        .container{
+            padding: 30px;
+            border-radius: 20px;
+            background-color: var(--bkcolor0);
+            height: auto;
+            width: 100%;
+            width: 25rem;
+        }
+        h1 {
+            text-align: center;
+            margin: 0 0 10px 0;
+        }
+        #new-input{
+            font-size: 1em;
+            font-weight: bold;
+
+            margin: 0px;
+            padding: 5px;
+            width: 75%;
+            height: 100%;
+
+            border: 1px solid rgba(0,0,0,0.5);
+            border-top-left-radius:  20px;
+            border-bottom-left-radius: 20px;
+            /* border-radius: 20px 0 0 20px; */
+
+            box-sizing: border-box;
+        }
+        #new-add{
+            border: 1px solid rgba(0,0,0,0.5);
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            /* border-radius: 0 20px 20px 0; */
+
+            margin: 0px;
+            margin-left: -5px;
+            padding: 5px;
+            width: 25%;
+            height: 100%;
+
+            display: inline;
+            box-sizing: border-box;
+
+            background-color: var(--bkcolor1);
+            font-size: 1em;
+        }
+        button{
+            width: 80px;
+            height: 40px;
+            margin: 3px;
+            background-color: var(--bcolor0);
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.5);
+            color: black;
+            font-size: 1em;
+        }
+        button:hover{
+            width: 80px;
+            height: 40px;
+            margin: 3px;
+            background-color: var(--bcolor2);
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.5);
+            color: white;
+            font-size: 1em;
+        }
+        .input-set{
+            height: 70px;
+            margin-bottom: 7px;
+        }
+        .list-card{
+            transition: 0.5s ease-in;
+            background-color: var(--bcolor1);
+            border-radius: 20px;
+            color: white;
+            max-width: 85%;
+            height: 45px;
+            padding: 10px;
+            margin: 0 0 10px 0;
+            overflow: hidden;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+        .list-card:hover{
+            background-color: var(--bcolor3);
+            border-radius: 20px;
+            color: white;
+            max-width: 100%;
+            height: auto;
+            padding: 10px;
+            margin: 0 0 10px 0;
+            overflow: hidden;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+        h2{
+            margin: 0;
+            /* overflow: hidden; */
+            white-space: normal;
+            word-wrap: break-word;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const type = document.querySelector('h1')
+            new TypeIt(type,{speed:50}).pause(700).move(-6).type('나의').go()
+
+            const newInput = document.getElementById('new-input')
+            const newAdd = document.getElementById('new-add')
+            const selDel = document.getElementById('sel-del')
+            const allDel = document.getElementById('all-del')
+            const list = document.getElementById('list')
+            newInput.setAttribute('placeholder','내용을 입력 하세요')
+            
+            function listLoaded(){
+                const listCard = document.createElement('div')
+                const span = document.createElement('span')
+                const chk = document.createElement('input')
+                const content = document.createElement('h2')
+                const listB = document.createElement('button')
+                list.appendChild(listCard).append(span,chk,listB,content)
+            
+            }
+            let id = 0
+            Object.assign(listCard,{
+                id:`li${id}`,
+                className: 'list-card'
+        })
+            Object.assign(chk,{
+                id:`li${id}`,
+                type: 'checkbox'
+        })
+            Object.assign(span,{
+                id:`c${id}`,
+        })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>할 일 목록</h1>
+            <div class="input-set">
+                <input type="text" id="new-input">
+                <input type="button" id="new-add" value="할일추가"></div>
+            <button id="sel-del">완료제거</button>
+            <button id="all-del">모두제거</button>
+        </div>
+            <hr>
+        <div id="list">
+            <div class="list-card">
+                <span>체크</span>
+                <input type="checkbox">
+                <!-- <button>삭제</button> -->
+                <h2>안녕하세요.반가워요.</h2>
+            </div>
+            <div class="list-card">
+                <span>체크</span>
+                <input type="checkbox">
+                <!-- <button>삭제</button> -->
+                <h2>안녕하세요.두번째.</h2>
+            </div>     
+        </div>
+    </div>    
+</body>
+</html>
