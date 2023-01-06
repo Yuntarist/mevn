@@ -1,7 +1,7 @@
 <template>
   <div class="modal">
     <div class="modal-body">
-      <!-- <div>변경되었습니다.🐔🐔🐔</div> -->
+      <div>변경되었습니다.🐔🐔🐔</div>
     </div>
   </div>
   <div id="container">
@@ -13,7 +13,11 @@
           @input="myname = $event.target.value"
           placeholder="대화명을 입력하세요."
         />
-        <input type="button" value="확인" @click="makeName()" />
+        <input
+          type="button"
+          value="확인"
+          @click=";[makeName(), (modalon = true)]"
+        />
       </span>
       <span v-if="myname !== '익명'">대화명:{{ myname }}</span>
     </div>
@@ -52,7 +56,7 @@ export default {
   created() {
     this.$socket.on('chat', (data) => {
       console.log(data)
-      this.chatData.push(this.myname + ': ' + data.message)
+      this.chatData.push(data.message)
     })
   },
   data() {
@@ -68,6 +72,11 @@ export default {
   methods: {
     makeName() {
       console.log('나중에 씀')
+      this.$socket.emit('chat', {
+        id: this.myname,
+        message: `${this.myname}으로 이름을 바꾸셨습니다.`
+      })
+      this.message = ''
     },
     sendMessage() {
       this.$socket.emit('chat', {
@@ -76,6 +85,7 @@ export default {
         toid: this.toname
       })
       console.log(this.message)
+      this.message = ''
     }
   }
 }
@@ -141,5 +151,23 @@ button {
   border-radius: 5px;
   outline: none;
   color: #fff;
+}
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0, 0, 0.4);
+  z-index: 10;
+}
+.modal-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  background: #ffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px 0 rgba(34, 36, 36, 1);
 }
 </style>

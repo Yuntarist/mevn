@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_pr03"]=self["webpackChunkvue_pr03"]||[]).push([[443],{8924:function(u,e,n){n.r(e),n.d(e,{default:function(){return c}});var t=n(3396),r=n(7139),s={__name:"AboutView",setup(u){const e="이것은 setup으로 작성한 것임";return(u,n)=>((0,t.wg)(),(0,t.iD)("div",null,[(0,t._)("h1",null,(0,r.zw)(u.yhs),1),(0,t._)("h2",null,(0,r.zw)(e))]))}};const l=s;var c=l}}]);
+//# sourceMappingURL=about.cf6bdf58.js.map
