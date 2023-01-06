@@ -25,8 +25,19 @@
         <td>{{ item.product_name }}</td>
         <td>{{ item.price }}</td>
         <td>{{ item.delivery_price }}</td>
-        <td><input type="number" style="width: 50px; text-align: center" /></td>
-        <td>{{ (total[i] = item.price * i + delivery_price) }}</td>
+        <td>
+          <input
+            type="number"
+            style="width: 50px; text-align: center"
+            v-model="수량[i]"
+          />
+        </td>
+        <td>
+          {{
+            (total[i] =
+              item.price * 수량[i] + (수량[i] > 0 ? item.delivery_price : 0))
+          }}
+        </td>
       </tr>
     </table>
   </div>
@@ -38,6 +49,7 @@ export default {
   data() {
     return {
       total: [],
+      수량: [0, 0, 0, 0, 0],
       selData: '',
       cities: [
         { title: '부산', code: '051' },
