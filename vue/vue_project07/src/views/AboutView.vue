@@ -1,0 +1,87 @@
+<template>
+  <div>
+    <select name="" id="" v-model="selData">
+      <option :value="city.title" v-for="city in cities" :key="city">
+        {{ city.title }}
+      </option>
+    </select>
+    <div>선택하신 배송지역은 : {{ selData }}</div>
+  </div>
+  <hr />
+  <div>
+    <table>
+      <tr>
+        <th>No.</th>
+        <th>카테고리</th>
+        <th>제품명</th>
+        <th>가격</th>
+        <th>배송료</th>
+        <th>수량</th>
+        <th>합계</th>
+      </tr>
+      <tr :key="i" v-for="(item, i) in productList">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.product_name }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.delivery_price }}</td>
+        <td><input type="number" style="width: 50px; text-align: center" /></td>
+        <td>{{ (total[i] = item.price * i + delivery_price) }}</td>
+      </tr>
+    </table>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'app',
+  data() {
+    return {
+      total: [],
+      selData: '',
+      cities: [
+        { title: '부산', code: '051' },
+        { title: '서울', code: '02' },
+        { title: '제주', code: '064' },
+        { title: '창원', code: '055' },
+        { title: '대구', code: '053' }
+      ],
+      productList: [
+        {
+          product_name: '기계식키보드',
+          price: 25000,
+          category: '노트북/태블릿',
+          delivery_price: 5000
+        },
+        {
+          product_name: '무선마우스',
+          price: 12000,
+          category: '노트북/태블릿',
+          delivery_price: 3000
+        },
+        {
+          product_name: '아이패드',
+          price: 725000,
+          category: '노트북/태블릿',
+          delivery_price: 10000
+        },
+        {
+          product_name: '태블릿거치대',
+          price: 32000,
+          category: '노트북/태블릿',
+          delivery_price: 5000
+        },
+        {
+          product_name: '무선충전기',
+          price: 42000,
+          category: '노트북/태블릿',
+          delivery_price: 4000
+        }
+      ]
+    }
+  },
+  methods: {}
+}
+</script>
+
+<style></style>

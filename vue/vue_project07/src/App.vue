@@ -1,15 +1,9 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/String">String</router-link> |
-    <router-link to="/Html">Html</router-link> |
-    <router-link to="/Input">Input</router-link> |
-    <router-link to="/Select">Select</router-link> |
-    <router-link to="/checkbox">checkbox</router-link> |
-    <router-link to="/homework">숙제</router-link> |
+    <router-link to="/about">About</router-link>
   </nav>
-  <router-view />
+  <router-view/>
 </template>
 
 <style>
