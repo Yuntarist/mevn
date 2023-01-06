@@ -23,8 +23,14 @@
         <td>{{ i + 1 }}</td>
         <td>{{ item.category }}</td>
         <td>{{ item.product_name }}</td>
-        <td>{{ item.price }}</td>
-        <td>{{ item.delivery_price }}</td>
+        <td class="iprice"><input v-model.number="item.price" /></td>
+        <td>
+          {{
+            selData !== '제주'
+              ? item.delivery_price
+              : item.delivery_price + 5000
+          }}
+        </td>
         <td>
           <input
             type="number"
@@ -35,9 +41,18 @@
         <td>
           {{
             (total[i] =
-              item.price * 수량[i] + (수량[i] > 0 ? item.delivery_price : 0))
+              item.price * 수량[i] +
+              (수량[i] > 0
+                ? selData !== '제주'
+                  ? item.delivery_price
+                  : item.delivery_price + 5000
+                : 0))
           }}
         </td>
+      </tr>
+      <tr>
+        <td id="sum-title" colspan="6">총합</td>
+        <td>{{ (sum = total.reduce((a, c) => a + c, 0)) }}</td>
       </tr>
     </table>
   </div>
@@ -48,6 +63,7 @@ export default {
   name: 'app',
   data() {
     return {
+      sum: 0,
       total: [],
       수량: [0, 0, 0, 0, 0],
       selData: '',
