@@ -1,9 +1,16 @@
+require('dotenv').config() // env를 사용하기 때문에 꼭 넣어줘야함.
 var express = require('express')
 var app = express()
-var client_id = process.env.nid
+
+var client_id = process.env.nid // 번역
 var client_secret = process.env.npw
-var query = '날씨가 참 좋다'
+var client_id2 = process.env.nid2 // 감지
+var client_secret2 = process.env.npw2
+
+var query = '시간이 빨리 지나가요.'
+
 app.get('/translate', function (req, res) {
+  // 번역
   var api_url = 'https://openapi.naver.com/v1/papago/n2mt'
   var request = require('request')
   var options = {
@@ -12,6 +19,19 @@ app.get('/translate', function (req, res) {
     headers: {
       'X-Naver-Client-Id': client_id,
       'X-Naver-Client-Secret': client_secret
+    }
+  }
+})
+app.get('/translate', function (req, res) {
+  // 감지
+  var api_url = 'https://openapi.naver.com/v1/papago/detectLangs'
+  var request = require('request')
+  var options = {
+    url: api_url,
+    form: { query: query },
+    headers: {
+      'X-Naver-Client-Id': client_id2,
+      'X-Naver-Client-Secret': client_secret2
     }
   }
   request.post(options, function (error, response, body) {
