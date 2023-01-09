@@ -30,7 +30,7 @@ axios.get(url).then((res) => {
     console.log(
       `${rank[i]} ` +
         `챔피언 이름: (${champion[i]}) ` +
-        `밴픽률: (${banpick[i]}) ` +
+        `밴픽률: (${banpick[i]}) ` + // 밴픽률 순으로 정렬해보기
         `승률: (${winrate[i]}) `
     )
   }
