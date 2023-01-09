@@ -26,11 +26,11 @@ axios.get(url).then((res) => {
     winrate.push($(this).text())
   })
   //   console.log(winrate)
-  for (i = 0; i <= 19; i++) {
+  for (i = 0; i <= 126; i++) {
     console.log(
       `${rank[i]} ` +
         `챔피언 이름: (${champion[i]}) ` +
-        `밴픽률: (${banpick[i]}) ` + // 밴픽률 순으로 정렬해보기
+        `밴픽률: (${banpick[i]}) ` + // 밴픽률 순으로 정렬해보기 현재 챔피언 수 127
         `승률: (${winrate[i]}) `
     )
   }
