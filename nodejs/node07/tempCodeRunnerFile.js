@@ -1,2 +1,3 @@
-let newBanpick = (banpick.sort())
-  //   console.log(newBanpick)
+
+  const asd = [banpick, winrate]
+  console.log(asd)

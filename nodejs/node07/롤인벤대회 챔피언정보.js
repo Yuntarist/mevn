@@ -26,6 +26,10 @@ axios.get(url).then((res) => {
     winrate.push($(this).text())
   })
   //   console.log(winrate)
+
+  const asd = [banpick, winrate]
+  console.log(asd)
+
   for (i = 0; i <= 126; i++) {
     console.log(
       `${rank[i]} ` +
