@@ -10,23 +10,20 @@ const bot = new TelegramBot(token, { polling: true })
 // 에코기능쓰는 코드
 bot.onText(/\/echo (.+)/, (msg, match) => {
   const chatId = msg.chat.id
-  const resp = match[1]
+  const resp = match[4]
   bot.sendMessage(chatId, resp)
 })
 
 // 메세지 쓸때마다 나오는 채팅
 // bot.on('message', (message) => {
 //   const chatId = message.chat.id
-//   bot.sendMessage(chatId, '당신의 메세지를 받았습니다1.')
-//   console.log(message)
+//   bot.sendMessage(chatId, 'ㅇㅅㅇ')
+//   console.log(msg)
 // })
 // 테스트중
 bot.onText(/안녕하세요/, (msg, match) => {
   const chatId = msg.chat.id
   bot.sendMessage(chatId, '반갑습니다.')
-  //   if (text !== /안녕하세요/) {
-  //     bot.sendMessage(chatId, '당신의 메세지를 받았습니다.')
-  //   }
 })
 bot.onText(/배고파요/, (msg, match) => {
   const chatId = msg.chat.id
@@ -40,7 +37,3 @@ bot.onText(/ㅌㅌㅌㅌ/, (msg, match) => {
   const chatId = msg.chat.id
   bot.sendMessage(chatId, 'ㅌㅌㅌ')
 })
-// bot.onText(/"????"/, (msg, match) => {
-//   const chatId = msg.chat.id
-//   bot.sendMessage(chatId, '!!!!.')
-// })
