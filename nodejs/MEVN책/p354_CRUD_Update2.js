@@ -3,12 +3,14 @@ const main = async () => {
   const t = await Photo.updateMany(
     {
       title: {
-        $eq: 'ㅇㅅㅇ'
+        $in: ['^오^', 'ㅇㅅㅇ', 'ㅇㅁㅇ', 'ㅇ_ㅇ']
       }
     },
     {
-      $set: {
-        url: 'https://google.com'
+      $push: {
+        something: {
+          $each: [1, 2, 3]
+        }
       }
     },
     {
