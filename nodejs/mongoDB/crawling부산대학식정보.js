@@ -24,11 +24,6 @@ axios.get(url).then((res) => {
     // 메뉴가 있는날만
     console.log(`${date[i]}(${day[i]})\n${menu[i]}`)
   }
-  let daymenu = {
-    key: day,
-    value: menu
-  }
-  console.log(daymenu[day])
 })
 
 // 객체만들기
