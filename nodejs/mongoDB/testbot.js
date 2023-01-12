@@ -23,7 +23,7 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
 // 테스트중
 bot.onText(/영화순위/, (msg, match) => {
   const chatId = msg.chat.id
-  bot.sendMessage(chatId, '반갑습니다.')
+  bot.sendMessage(chatId, gg)
 })
 bot.onText(/배고파요/, (msg, match) => {
   const chatId = msg.chat.id

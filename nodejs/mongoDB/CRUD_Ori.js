@@ -11,5 +11,5 @@ mongoose
   .connect(mongodbURL, { useNewUrlParser: true })
   .then(() => console.log('connection successful'))
   .catch((err) => console.error(err))
-const Photo = require('./p343/photo.js')
+const testSchema = require('./folder1/test용.js')
 module.exports = Photo

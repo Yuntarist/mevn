@@ -12,4 +12,4 @@ mongoose
   .then(() => console.log('connection successful'))
   .catch((err) => console.error(err))
 const Photo = require('./p343/photo.js')
-module.exports = Photo
+module.exports = (mongoose, Photo)

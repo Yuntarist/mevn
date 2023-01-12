@@ -1,9 +1,8 @@
-const Photo = require('./p346_CRUD_Ori.js')
-const gg = [1, 2, 3]
+const { Photo } = require('./p346_CRUD_Ori.js')
 const main = async () => {
   const _data = {
-    albumId: gg[0],
-    id: 12010,
+    albumId: 230112,
+    id: 230112,
     title: 'ㅇㅅㅇ',
     url: 'google.com',
     thumbnailUrl: 'https://naver.com'
